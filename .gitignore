@@ -119,8 +119,12 @@ node_modules
 
 psd
 thumb
-sketch
+sketc
 
+# workspace setup
 .vscode
+
+# sqlite
+*.sqlite
 
 # End of https://www.gitignore.io/api/node,react
