@@ -19,7 +19,16 @@ module.exports = {
     
             return { id };
         } catch (err) {
-            throw new Error('Erro ao persistir ong')
+            throw new Error('Erro ao persistir ong.')
+        }
+    }, 
+    async findAll() {
+        try {
+            const ongs = await connection('ongs').select('*');
+
+            return ongs;
+        } catch (err) {
+            throw new Error('Erro ao recuperar ongs.');
         }
     }
 }

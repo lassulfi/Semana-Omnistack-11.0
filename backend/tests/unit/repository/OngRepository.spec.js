@@ -23,5 +23,11 @@ describe('OngRepository', () => {
         const { id } = await repository.insert(ong);
         
         expect(id).toHaveLength(8);
+    }),
+
+    it('should be able to list all ongs', async () => {
+        const ongs = await repository.findAll();
+
+        expect(ongs).toBeDefined();
     })
 })
