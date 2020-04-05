@@ -1,12 +1,12 @@
-const connection = require('../database/connection');
 const generateUniqueId = require('../utils/generateUniqueId')
+const service = require('../service/OngService');
 
 module.exports = {
     async create(request, response) {
         const { name, email, whatsapp, city, uf } = request.body;
         const id = generateUniqueId();
 
-        await connection('ongs').insert({
+        await service.create({
             id,
             name,
             email,
@@ -18,7 +18,7 @@ module.exports = {
         return response.json( { id });
     },
     async index(request, response) {
-        const ongs = await connection('ongs').select('*');
+        const ongs = await service.findAll();
 
         return response.json(ongs);
     }
